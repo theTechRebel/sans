@@ -33,4 +33,19 @@ Got a tip ive always wanted to test out from Adonis and changed the front end de
 for css, js and img from client_side to uiux. I think its cooler and follows the CI convention of application,
 system and uiux.
 
+TO-DOS:
+1. Newsletter sign up box does not work in side-menu @ 50%
+2. Designers View needs to be added @ 0%
+3. Blogg needs to be added @ 0%
+4. Sales Reps login and admin menu needs to be added @ 0%
+5. Cash on delivery needs to be completely developed @ 70%
+6. Hook site up to Google Analytics @ 0%
+
+THOUGHTS:
+Maybe i will migrate the admin end as well to semantic-ui, but is there need?
+There are a lot of differences between the hosted code and this repo for instance the hosted code has
+a lot of legacy code that is needed to keep the site up especially the admin (running on foundation)
+so i may or may not migrate everything right now. Will do so when the @ 0% TO-DOS are completed i guess
+
+@theTechRebel
 ===============================================================================================================
