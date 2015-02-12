@@ -1,0 +1,10 @@
+.vimrc
+env
+env.json
+node_modules/
+*.log
+**/*.swp
+gittest/
+/slimmage.min.js
+/slimmage.min.js.gz
+test/bs-config.js
