@@ -40,7 +40,10 @@ TO-DOS:
 4. Sales Reps login and admin menu needs to be added @ 0%
 5. Cash on delivery needs to be completely developed @ 70%
 6. Hook site up to Google Analytics @ 0%
-7.Search site functionality does not work @ 0%
+7. Search site functionality does not work @ 0%
+8. Fix all dead links on the site, they need to link to content @ 0%
+9. Fix redirect from PayNow after cancelling transaction @ 0%
+10.Fix additional information sent to PayNow its just too messy and confusing @ 0%
 
 THOUGHTS:
 Maybe i will migrate the admin end as well to semantic-ui, but is there need?
