@@ -16,22 +16,22 @@
   <?php }?>
 
   <a class="item" href="<?php echo $url;?>cart/">
-   <b>Shopping Cart</b>
+   Shopping Cart
   </a>
   <a class="item" href="<?php echo $url;?>catalogue/all/">
-    <b>All Collections</b>
+    All Collections
   </a>
     <a class="item" href="<?php echo $url;?>catalogue/men/">
-    <b>For Him</b>
+    For Him
   </a>
     <a class="item" href="<?php echo $url;?>catalogue/women/">
-    <b>For Her</b>
+    For Her
   </a>
     <a class="item" href="<?php echo $url;?>catalogue/blog/">
-    <b>Fashion Blog</b>
+    Fashion Blog
   </a>
     <a class="item" href="<?php echo $url;?>catalogue/designers/">
-    <b>Meet Our Designers</b>
+    Meet Our Designers
   </a>
 </div>
 <!-- end of black side bar -->

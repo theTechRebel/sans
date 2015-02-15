@@ -1,0 +1,243 @@
+/*===========================================================================*/
+/*          styles for the entire site                                       */
+/*===========================================================================*/
+
+/*    body        */
+body {
+  /* background: url("../images/bg.png") #f1f1f1; */
+}
+/*  Error message appearance         */
+.th{
+  border-radius: 0;
+  border-color: #ffffff;
+  border-style: none;
+}
+
+.masthead{
+  background-color: #ffffff;
+  margin-top: 45px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.frontpage{
+  min-height: 370px;
+  max-height: 370px;
+}
+
+.full-width{
+  min-width: 100%;
+}
+
+.top-bar{
+  max-height: 35px;
+}
+.left{
+  max-height: 35px;
+}
+
+
+
+.error{
+  color: red;
+}
+
+.panel{
+    background-color: #ffffff;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    height: 200;
+    border-width: 1px;
+    border-color: #f1f1f1;
+}
+
+.desc{
+  margin-bottom: 5px;
+  font-size: 12px;
+  margin-top: 10px;
+
+}
+
+#right{
+  margin-left: 0px;
+  padding-left: 0.5px;
+}
+
+#left{
+  margin-right: 0px;
+  padding-right: 0.5px;
+}
+
+.top-row {
+  min-width:90% !important;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.top-search{
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  margin-top: 10px;
+}
+
+.navigation-section{
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.pagination{
+
+}
+
+.google{
+  background-image: url('/img/data.jpg');
+  background-repeat:repeat;
+  background-attachment:fixed;
+  background-position:center;
+  margin-bottom: 0px;
+  height: 50%;
+  width: 80%
+}
+
+.google1{
+  background-image: url('/img/google-products.png');
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:center;
+  margin-bottom: 0px;
+  height: 50%;
+  width: 80%
+}
+
+.google2{
+  background-image: url('/img/data.jpg');
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:center;
+  margin-bottom: 0px;
+  height: 90%;
+  width: 80%
+}
+
+.sect{
+  background-color: white;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  width: 100%
+}
+/*========================================================================================*/
+/*          Initial Landing Page image
+/*========================================================================================*/
+
+
+/*========================================================================================*/
+/* *NOT USED* Adding an image to the background and keeping it static there
+/*========================================================================================*/
+
+.img{
+  height: 100%;
+  width: 100%;
+  background-image: url('../img/bird.jpg');
+  background-repeat:no-repeat;
+  background-attachment:scroll;
+  background-position:center;
+  margin-bottom: 0px;
+}
+
+
+/*========================================================================================*/
+/* The first page=section to open when a user visits  the site.
+/*========================================================================================*/
+.slide1 {
+    background:  url('../img/birdblackandwhite.jpg') center top no-repeat;
+    height: 100%;
+    background-size: cover;
+    background-color: rgb(0, 0, 0);
+    background-position: 0px 0px;
+    color: white!important;
+    padding-top: 10%;
+}
+
+
+/*========================================================================================*/
+/* Top callout box with title -slide1
+/*========================================================================================*/
+#intro1 h4 {
+  font-size: 30px;
+  color: rgb(28, 34, 36);
+  background: rgb(234, 234, 234);
+  background: rgba(234, 234, 234, 0.5);
+  max-width: 90%;
+}
+
+h4 {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+
+
+/*========================================================================================*/
+/* Second callout box with title -slide1
+/*========================================================================================*/
+#intro1 h3 {
+  font-size: 28px;
+  color: rgb(234, 234, 234);
+  background: rgb(28, 34, 36);
+  background: rgba(28, 34, 36, 0.5);
+  max-width: 51%;
+
+}
+
+h3 {
+  padding-top: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+
+}
+
+/*========================================================================================*/
+/* Third callout box with title -slide1
+/*========================================================================================*/
+
+#intro1 h2 {
+  font-size: 28px;
+  color: rgb(234, 234, 234);
+  background: rgb(28, 34, 36);
+  background: rgba(28, 34, 36, 0.5);
+  max-width: 57%;
+
+}
+
+h2 {
+  padding-top: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+/*========================================================================================*/
+/* Bottom callout box with title -slide1
+/*========================================================================================*/
+
+#intro1 h1 {
+  font-size: 28px;
+  color: rgb(234, 234, 234);
+  background: rgb(28, 34, 36);
+  background: rgba(28, 34, 36, 0.5);
+  max-width: 60%;
+
+}
+
+h1 {
+  padding-top: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+
+/*========================================================================================*/

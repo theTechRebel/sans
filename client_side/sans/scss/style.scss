@@ -1,0 +1,43 @@
+body {
+	background-color: #f1f1f1;
+}
+
+.full-widths {
+	min-width: 100%;
+}
+
+header {
+	background: url('../images/stary-bg.png') #074e68;
+	min-height: 175px;
+	h1 {
+		color: #fff;
+		padding-top: 50px;
+	}
+}
+
+.navigation-section {
+	background-color: #333;
+	.top-bar {
+		li {
+			text-transform: uppercase;
+		}
+	}
+}
+
+.main-section {
+	padding: 30px 0 25px 0;
+}
+
+footer {
+	background-color: #074e68;
+	padding: 50px 0 40px 0;
+	h4, p {
+		color: #fff;
+	}
+}
+
+.copyright-section {
+	background-color: #333;
+	color: #fff;
+	padding: 25px 0 0 0;
+}
