@@ -27,9 +27,9 @@
     <a class="item" href="<?php echo $url;?>catalogue/women/">
     For Her
   </a>
-    <a class="item" href="<?php echo $url;?>catalogue/blog/">
+   <!-- <a class="item" href="<?php echo $url;?>catalogue/blog/">
     Fashion Blog
-  </a>
+  </a> -->
     <a class="item" href="<?php echo $url;?>catalogue/designers/">
     Meet Our Designers
   </a>
