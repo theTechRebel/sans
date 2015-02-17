@@ -1,5 +1,38 @@
 17-02-2015
 
+SANS V 2.1.1
+=
+
+Release NOTE:
+=
+Stable Release with fix for 
+
+CHANGES
+=
+
+1. “Headers already sent” error in PHP
+solution - http://stackoverflow.com/questions/8028957/how-to-fix-headers-already-sent-error-in-php 
+location - application/core/Exceptions.php : Line 185
+fix - echo $buffer; must appear before ob_end_clean();
+end result - application/core/Exceptions.php
+											Line 184: echo $buffer;
+											Line 185:	ob_end_clean();
+											-
+comments - this is a CI error that i discovered when not in development but during production.
+											to replicate it switch Line 184 with Line 185 such that ob_end_clean(); appears before
+											echo $buffer; then procede to host the site in an environment where  [output_buffering](http://php.net/manual/en/outcontrol.configuration.php) is disbaled and try navigating the site and adding an item to cart.
+											The errors should populate the page and you should also recieve an Array to String Conversion failed error.
+THOUGHTS
+=
+Scared me for a second there because this error didnt show up on localhost but when the site went live.
+Thanks StackOverflow. :)
+
+@theTechRebel
+=
+
+
+17-02-2015
+
 SANS V 2.1.0
 =
 
