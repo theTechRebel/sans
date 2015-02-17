@@ -101,6 +101,9 @@ class Auth extends CI_Controller {
 
   public function signup()
    {
+
+    
+    
     if($this->session->userdata('logged_in') ==FALSE)
     {
 
@@ -121,6 +124,20 @@ class Auth extends CI_Controller {
       }
       else
       {
+        $condition = array('email'=>strtolower($this->input->post('s_email')));
+        $data = $this->app_model->get_all_where("customers", $condition, 1);
+        $dat = $data->row();
+
+        if(count($dat) > 0){
+          $user =  $dat->fname." ".$dat->sname;
+          $data = array('userfound' => $user,
+                        'userfound_email' => $dat->email);
+          $this->session->set_userdata($data);
+          redirect('auth/');
+        }
+        
+
+
         $signup_info = array('fname' => strtolower($this->input->post('s_name')),
                          'sname' => strtolower($this->input->post('s_surname')),
                          'phone' => $this->input->post('s_phone'),
@@ -135,6 +152,13 @@ class Auth extends CI_Controller {
 
         if($query = $this->app_model->insert('customers', $signup_info) == TRUE)
         {
+          if(isset($_POST['newsletter'])){
+              $signup =  array('name' => $this->input->post('s_name')." ".$this->input->post('s_surname'),
+                               'email' => $this->input->post('s_email'),
+                               'date_of_signup' => get_time());
+              $this->app_model->insert('newsletter_subscribers', $signup);
+            }
+            
           $this->_start_session($this->input->post('s_email'), "user");
           redirect('dashboard/');
         }else{
@@ -155,4 +179,87 @@ class Auth extends CI_Controller {
     redirect('auth');
   }
 
-}?>
+
+
+  public function recover(){
+   if($this->session->userdata('logged_in')==FALSE)
+    {
+      $this->form_validation->set_rules('email', 'Email Address', 'required');
+      if($this->form_validation->run('login') == FALSE)
+      {
+         $data['page'] = 'Login';
+         $this->load->view('auth-recover', $data);
+      }else{
+        $data = $this->app_model->get_all_where("customers", array('email'=>$_POST['email']), 1);
+        $email = $data->row();
+        //die(var_dump($email));
+        $this->recoverPassword($email->password,$email->fname." ".$email->sname,$email->email);
+
+        $this->session->set_userdata('userfound_email',$email->email);
+        $this->session->set_userdata('email_sent',"TRUE");
+        $this->load->view('auth-recover');
+      }
+  }else{
+    redirect("customers");
+  }
+}
+
+private function recoverPassword($pwd,$customer,$email){
+
+    
+    /*
+    //using default email account
+    $config = Array(
+      //'protocol' => 'smtp',
+      'smtp_host' => 'smtp.zoho.com',
+      'smtp_port' => 587,
+      'smtp_user' => 'sales@sans.co.zw', // change it to yours
+      'smtp_pass' => 'sales@sans', // change it to yours
+      'mailtype' => 'html',
+     //'starttls'  => true,
+  );
+  */
+
+
+    $message = "
+                Dear ".$customer." <br/>
+                You have requested to recover the password for your SANS Exposure Account.<br/>
+                ==========================================================================<br/>
+                We hope you keep this password safe, although you can recover it anytime
+                from our login area.
+
+                Your Password is: <br/>
+                <h1>".$pwd."</h1><br/>
+
+                Thank you for visiting our website.
+                We value your continued support.
+                https://www.sans.co.zw/";
+
+    //using sendgrid
+    $result = $this->sendgrid_mail->send(
+                                          $email, 
+                                          'Password Recovery', 
+                                          $message, 
+                                          NULL, 
+                                          'support@sans.co.zw'
+                                          );
+
+    //$result->error_message();
+    die(var_dump($result));
+
+    /*
+    $this->load->library('email', $config);
+    $this->email->set_newline("\r\n");
+    $this->email->from('support@sans.co.zw, SANS Exposure Support Team'); // change it to yours
+    $this->email->to($email);// change it to yours
+    $this->email->to("steve@sans.co.zw");
+    $this->email->subject('Password Recovery');
+    //$this->email->set_header();
+    $this->email->message($message);
+    $this->email->send();
+    */
+  }
+
+}
+
+?>

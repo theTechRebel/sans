@@ -58,6 +58,11 @@
                 <h2 class="shop-collection">
 
                 <?php 
+                if(null !== $this->session->userdata('newsletter')){
+                  echo $this->session->userdata('newsletter');
+                   $this->session->unset_userdata('newsletter');
+                }
+
                 if(isset($item)){
 
                   switch ($item) {

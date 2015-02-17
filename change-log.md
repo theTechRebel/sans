@@ -1,3 +1,43 @@
+17-02-2015
+
+SANS V 2.1.0
+=
+
+RELEASE NOTE:
+=
+Stable Release
+
+CHANGES
+=
+1. Cash On Delivery
+-
+added cash on delivery controller to process cash on delivery process can be found in application/controllers/cod.php
+
+2. Sparks
+-
+discovered codeigniter sparks which are basically dependencies for codeigniter for additional functionality / packages developed by the CI community. Installed Spaks and can be found it sparks/ at the root of the application directory. Sparks are really cool though, didnt know CI had a sort of Ruby On Rails - Ruby Gems setup or Node.js NPM package manager. this is great for CI and the CI community at large (if it works) take that Laravel! HA!.
+
+3. SendGrid
+using sendgrid for email infrastructure, not yet fully configured but it is a realy great and robust service to build email upon. Added the spark for sendgrid can be found in sparks/sendgrid-mail/0.1.2. Not yet really sure how it works but will explore it deeper and use it for newsletter as well as transactional email. Thanks to my GitHub Education pack i have 15 000 free email sends per month hooray!!!! knew it would come in handy.
+
+4. client_side
+migrated old code into this project because well even though semantic packs a punch for my front end it takes time to work with and develop a robust backend using Semantic-UI. So Backend/Admin is running on Foundation 5 and will continue to do so. the backend css and js is in application/client_side/foundation/**.
+
+TODO's
+=
+8. Sales Reps login and admin menu needs to be added @ 0%
+9. Blogg needs to be added @ 0%
+10. Full SendGrid API Integration with this project for Email Infrastructure @ 30%
+
+THOUGHTS
+=
+Backend code stays on Foundation, Front end code stays on Semantic-UI, thats legal right?
+
+@theTechRebel
+=
+
+
+
 12-02-2015
 
 SANS V 2.0.0
@@ -44,16 +84,14 @@ system and uiux.
 TO-DOS
 =
 
-1. Newsletter sign up box does not work in side-menu @ 50%
-2. Designers View needs to be added @ 0%
-3. Blogg needs to be added @ 0%
-4. Sales Reps login and admin menu needs to be added @ 0%
-5. Cash on delivery needs to be completely developed @ 70%
-6. Hook site up to Google Analytics @ 0%
-7. Search site functionality does not work @ 0%
-8. Fix all dead links on the site, they need to link to content @ 0%
-9. Fix redirect from PayNow after cancelling transaction @ 0%
-10.Fix additional information sent to PayNow its just too messy and confusing @ 0%
+1. Newsletter sign up box does not work in side-menu @ 100%
+2. Designers View needs to be added @ 100%
+3. Fix all dead links on the site, they need to link to content @ 100%
+4. Search site functionality does not work @ 100%
+5. Cash on delivery needs to be completely developed @ 100%
+6.	Fix additional information sent to PayNow its just too messy and confusing @ 100%
+7. Fix redirect from PayNow after cancelling or completing transaction @ 100%
+
 
 
 THOUGHTS

@@ -34,6 +34,20 @@
 
 
 
-<a href="<?php echo $url;?>auth/signup/"><h3>If you dont have an account you can signup here</h3></a>
+<a href="<?php echo $url;?>auth/signup/"><h3>If you dont have an account you can signup here.</h3></a>
+
+<a href="<?php echo $url;?>auth/recover/"><h3>If you forgot your password you can recover it here.</h3></a>
+
+
+<?php 
+  if($this->session->userdata('userfound') != Null){
+                  echo "<h3> Hi there ". $this->session->userdata('userfound') ."<br/>";
+                   $this->session->unset_userdata('userfound');?>
+                   <a href="<?php echo $url?>auth/recover/">We noticed that you are trying to create another account when you already have one!
+                   If you forgot your password its not a problem you can recover it easily by clicking
+                   right here.</a></h3>
+<?php 
+}
+?>
             </div></div>
                 </div>

@@ -15,7 +15,7 @@
                 <p>
                 6th Floor Batanai Gardens, Corner First Street and Jason Moyo Avenue, Harare, Zimbabwe</p>
               </div>
-              <div class="two wide column">
+              <div class="four wide column">
                 <h5 class="ui teal inverted header">Telephone.</h5>
                 <div class="ui inverted link list">
                   <p>
@@ -24,7 +24,7 @@
                   +263 773 447 311<br/>
                 </div>
               </div>
-              <div class="two wide column">
+              <div class="four wide column">
                 <h5 class="ui teal inverted header">Email.</h5>
                 <div class="ui inverted link list">
                   <p>
@@ -40,12 +40,13 @@
                   <a class="item" href="https://www.paynow.co.zw/Transaction/Comments/1437" target="_blank">SANS Exposure is a Verified Merchant & Secure to recieve online payments with PayNow. You can pay via Visa, Master Card, EcoCash & TeleCash. Click here to find out more.</a>
                 </div>
               </div>
-              <div class="four wide column">
+
+              <!-- <div class="four wide column">
                 <h5 class="ui teal inverted header">Connect.</h5>
                 <div class="ui inverted link list">
                   <a class="item" href="http://legacy.semantic-ui.com">About SANS Exposure</a>
                   <a class="item" href="http://www.learnsemantic.com">Disclaimer</a>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>

@@ -14,7 +14,11 @@
 | path to your installation.
 |
 */
+//development
 $config['base_url'] = 'http://localhost/sans/';
+
+//production
+//$config['base_url'] = 'https://sans.co.zw/';
 
 /*
 |--------------------------------------------------------------------------
@@ -356,6 +360,25 @@ $config['rewrite_short_tags'] = FALSE;
 |
 */
 $config['proxy_ips'] = '';
+
+
+
+/*
+|--------------------------------------------------------------------------
+| SendGrid Configuration
+|--------------------------------------------------------------------------
+|
+| api_user 		=> username on sendgrid
+| api_key 			=> key from send grid
+| api_format =>	json, maybe there are other options?
+| 
+
+*/
+$config['sendgrid_mail'] = array(
+	           																					'api_user'   => 'theTechRebel',
+                                 'api_key'    => 'iamtheblaze93',
+                                 'api_format' => 'json'
+                                 );
 
 
 /* End of file config.php */

@@ -343,28 +343,29 @@
         </div>
     </div>
 
+    <div class="ui attached mid segment">
+              <div class="ui large form">
+                <div class="grouped inline fields payment-profiles">
+                  <div class="field">
+                    <div class="ui checkbox">
+                      <input id="newsletter" class="opt-in" checked="checked" name="newsletter" type="checkbox" value="1">
+                      <label for="newsletter"></label>
+                    </div>
+                    <label for="newsletter">Sign me up for the SANS Exposure newsletter.</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
     <div class="ui attached bottom right aligned segment">
-        <input type="submit" class="ui fluid primary huge button" value="Create Account">
+        <input type="submit" class="ui fluid primary huge button" name="submit" value="Create Account">
     </div>
 
   </div>
 </form>
 </div></div>
 
-            <div class="ui attached mid segment">
-              <div class="ui large form">
-                <div class="grouped inline fields payment-profiles">
-                  <div class="field">
-                    <div class="ui checkbox">
-                      <input type="hidden" name="newsletter" value="0">
-                      <input id="guest-optin" class="opt-in" checked="checked" name="guest-optin" type="checkbox" value="1">
-                      <label for="guest-optin"></label>
-                    </div>
-                    <label for="guest-optin">Sign me up for the SANS Exposure newsletter.</label>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
 
 
 

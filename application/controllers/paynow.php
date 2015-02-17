@@ -24,16 +24,17 @@ class Paynow extends CI_Controller {
       foreach ($this->cart->contents() as $items){
       $data .= "1 x ".$items['qty']." ".$items['name']." Code: ".$items["id"]." specifications:";
        foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value){
+          if($option_name != "location"){
+            if(!is_array($option_value)){
+              $data .= " ".$option_value;
+            }
             if(is_array($option_value)){
               foreach($option_value as $k => $v){
-                $data .= " ".$k." : ".$v;
+                $data .= " ".$v;
               }
-            }
-            if(!is_array($option_value)){
-              $data .= " ".$option_name." : ".$option_value;
-            }
-            
+            } 
           }
+        }
       }
 
       $paynowValues = array(
@@ -46,7 +47,11 @@ class Paynow extends CI_Controller {
                       'authemail' =>  $authemail,
                       'status' =>'Message'
                       );
-      //die(var_dump($paynowValues));
+      //foreach ($paynowValues as $key => $value) {
+      //  var_dump($key ." : ".$value);
+      //  echo "<br/>";
+      //}
+          
 
       $paynowFields = $this->_createMsg($paynowValues);
 
@@ -275,7 +280,7 @@ class Paynow extends CI_Controller {
 
 
     $message = "
-                Team SANS <br/>
+                SANS Exposure.<br/>
                 This is a payment notification for Invoice #". $row['id'] ." sent on ". $row['date_of_payment']." to ".$info['fname']." ".$info['sname'].". <br/>
                 ============================================<br/>
                 Order Details: ".$row['additionalinfo']."<br/>
@@ -285,7 +290,7 @@ class Paynow extends CI_Controller {
                 This order is pending delivery to customer". $row['customer'] ."
 
                 SANS Exposure Sales Team | sales@sans.co.zw <br/>
-                www.sans.co.zw
+                https://www.sans.co.zw/
                 ";
 
     $this->load->library('email', $config);
@@ -567,7 +572,8 @@ private function _customerHasCancelled($msg){
   $this->_notifyCustomerViaEmailCancelled($this->session->userdata('transaction'));
   $this->cart->destroy();
   $this->session->unset_userdata('transaction');
-  $this->load->view('paynow/cancelled');
+   $this->session->set_userdata('paynow_transaction_message',"Your Order has been succesffully CANCELLED, thank you for shopping with SANS Exposure. You may place another order at any time or continue shopping with us.");
+  redirect('customers');
 }
 
 private function _customerHasPaid($msg){
@@ -576,7 +582,8 @@ private function _customerHasPaid($msg){
   $this->_notifyUs($this->session->userdata('transaction'));
   $this->cart->destroy();
   $this->session->unset_userdata('transaction');
-  $this->load->view('paynow/thankyou');
+  $this->session->set_userdata('paynow_transaction_message',"Your Order has been succesffully PAID, thank you for shopping with SANS Exposure. You may place another order at any time or continue shopping with us.");
+  redirect('customers');
 }
 
 private function _customerHasCreated($msg){

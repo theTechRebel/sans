@@ -11,7 +11,7 @@
                           </div>
 
                           <h3><?php echo $item_name;?></h3>
-                          <h4><a href="<?php echo $url?>designers/view/<?php echo $designer;?>">Designed by <?php echo str_replace("_", " ", $designer);?></a></h4>
+                          <h4><a href="<?php echo $url?>catalogue/designers/<?php echo $designer;?>">Designed by <?php echo str_replace("_", " ", $designer);?></a></h4>
                           <h5><a href="<?php echo $url?>catalogue/view/<?php echo $sex;?>">
                           <?php  switch ($sex) {
                                 case 1:

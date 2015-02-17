@@ -35,7 +35,7 @@
 
         <span class="bar"></span>
 
-        <span class="designer">Designed by <strong><a href=""><?php echo str_replace('_',' ',$row->designer);?></a></strong></span>
+        <span class="designer">Designed by <strong><a href="<?php echo $url ."catalogue/designers/". $row->designer;?>"><?php echo str_replace('_',' ',$row->designer);?></a></strong></span>
 
       </span>
     </div>

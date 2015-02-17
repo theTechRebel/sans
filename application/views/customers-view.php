@@ -96,6 +96,12 @@
         </div>
 
   </div>
+  
+  <!-- display a messsage to the customer about the status of HIS/HER order -->
+  <?php if($this->session->userdata('paynow_transaction_message')!= Null){ ?>
+  <p><h1><?php echo $this->session->userdata('paynow_transaction_message'); ?></h1></p>
+  <?php $this->session->unset_userdata('paynow_transaction_message'); ?>
+  <?php }else{}?>
 
   <?php if($this->cart->total_items() != null){?>
 

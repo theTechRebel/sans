@@ -64,7 +64,7 @@ $autoload['libraries'] = array('form_validation','session','database','upload','
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('form','url','tinzwe');
+$autoload['helper'] = array('form','url','app');
 
 
 /*
@@ -110,6 +110,20 @@ $autoload['language'] = array();
 */
 
 $autoload['model'] = array('app_model');
+
+
+
+
+/*
+| -------------------------------------------------------------------
+|  Auto-load Sparks
+| -------------------------------------------------------------------
+| Prototype:
+|
+|	$autoload['sparks'] = array('spark1/version');
+|
+*/
+$autoload['sparks'] = array('example-spark/1.0.0','sendgrid-mail/0.1.2');
 
 
 /* End of file autoload.php */
