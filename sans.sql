@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2015 at 11:36 PM
+-- Generation Time: Feb 17, 2015 at 04:17 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `country` varchar(255) NOT NULL,
   `date_time` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `customers`
@@ -110,16 +110,9 @@ CREATE TABLE IF NOT EXISTS `customers` (
 INSERT INTO `customers` (`id`, `fname`, `sname`, `phone`, `email`, `address`, `password`, `usertype`, `zip`, `city`, `country`, `date_time`) VALUES
 (1, 'steven', 'dumbura', '0777902073', 'stevedumbura@gmail.com', '12 dingwel drive, twinlakes park\r\nnorton, harare                            ', 'iamtheblaze93', 'customer', '', '', '', ''),
 (2, 'simukai', 'whande', '+263773447311', 'simukaiwhande@yahoo.com', '1998 kuziva close \nnew malborugh\nharare\nzimbabwe                                                        ', 'Myfortune92', 'customer', '', '', '', ''),
-(3, 'simukai', 'whande', '+263773447311', 'simukaiwhande@yahoo.com', '1998 kuziva close new malborough harare                                                        ', 'tanyaradzwa', 'customer', '', '', '', ''),
-(4, 'anotida', 'whande', '+263773447311', 'swhande93@gmail.com', '                            6th floor batanai gardens harare', 'tanyaradzwa', 'customer', '', '', '', ''),
 (5, 'pearl', 'mbazima', '+263771674719', 'pearl@smeaz.org.zw', '                            6th floor batanai gardens, 57 jason moyo avenue, harare', 'tmm290098', 'customer', '', '', '', ''),
-(6, 's', 'w', '+263773447311', 'swhande93@gmail.com', 'were                            ', 'tanya', 'customer', '', '', '', ''),
 (7, 'sandra ', 'mariga', '+263774068996', 'scmariga@gmail.com', '2385 dzidzai street cherutombo zbs marondera zimbabwe                            ', 'dnzlsan', 'customer', '', '', '', ''),
-(8, 'adonis', 'rumbwere', '+263775462869', 'adonis.rumbwere@gmail.com', '                            4532 15th street glen view 3 harare', 'runyararowaenda', 'customer', '', '', '', ''),
-(9, 'online', 'shopper', '(+263) 777900009', 'stevedumbura@gmail.com', 'fnknkwnvkjwv wenvkjnwkvjwnvkwenvkwevw', 'vnlksdmvklsllsvnklsdnvklsdvnlsdkvnnnvlsdkvnslvkslnvlksdnvsl', 'customer', '+263', 'H town', 'ZW', '2015-02-12'),
-(10, 'fgbhfdndgns', 'vvjbjvkjsdvnjsd', 'vsdvdsvdsvsd', 'x', 'jdkncdjnkcnsdkncksd', 'x', 'customer', 'vsdvsdvsd', 'vcsdvsdvsdvsd', 'ZW', '2015-02-12'),
-(11, 'bbdfbfdb', 'bfdbdfb', 'bdfbdfdfb', 'c', 'bfbdfbdfb', 'c', 'customer', 'bfdbdf', 'bdfbfdb', 'AC', '2015-02-12'),
-(12, 'vdvd', 'vdvdvd', 'vdvsdvsdvs', 'g', 'vdvdvvdv', 'g', 'customer', 'vdvdvd', 'vdvds', 'US', '2015-02-12');
+(8, 'adonis', 'rumbwere', '+263775462869', 'adonis.rumbwere@gmail.com', '                            4532 15th street glen view 3 harare', 'runyararowaenda', 'customer', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -150,6 +143,32 @@ INSERT INTO `designers` (`id`, `surname`, `label`, `full_name`, `bio`, `pic`) VA
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `newsletter_subscribers`
+--
+
+CREATE TABLE IF NOT EXISTS `newsletter_subscribers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `date_of_signup` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `newsletter_subscribers`
+--
+
+INSERT INTO `newsletter_subscribers` (`id`, `name`, `email`, `date_of_signup`) VALUES
+(1, 'Online Shopper', 'onlineshooper@email.com', '2015-02-16'),
+(2, '', 'stevedumbura@gmail.com', '2015-02-16'),
+(3, '', 'jj@gmail.com', '2015-02-16'),
+(4, 'vbnkjnknk jjnkjnkn', 'stevedumbura@gmail.com', '2015-02-17'),
+(5, '', '', '2015-02-17');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `orders`
 --
 
@@ -164,7 +183,23 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `payment_hash` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `custom` (`customer`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `cart`, `date_placed`, `shipping_method`, `payment_method`, `complete`, `customer`, `payment_hash`) VALUES
+(1, '{"13c8a16335d4547d07f3bbcd840ad56c":{"rowid":"13c8a16335d4547d07f3bbcd840ad56c","id":"tr03","qty":"3","price":"12","name":"beaded neck pieces","options":{"specifications":"mjegjmfhjtfthk4hftft4hfkt4h rjg4uf","size":["   \\r\\n                                            sizes: \\r\\n                                              "],"location":".\\/uiux\\/img\\/stocks\\/designers\\/Tariro_The_Jeweler\\/Jewelery\\/tr03\\/IMG-20141202-WA0001.jpg"},"subtotal":36}}', '', 'collection', '', '', 'V', '1ebe03f3b77c21ba08b7901398c479d0259b2cc0'),
+(2, '{"c9915d5f3f448ed1ea5a07892bcb3240":{"rowid":"c9915d5f3f448ed1ea5a07892bcb3240","id":"cee019","qty":"3","price":"40","name":"Shatter skirt and Croptop","options":{"specifications":"","size":["   \\r\\n                                            sizes: \\r\\n                                              ","US - 8 ","US Named Size - Medium ","UK - 10 ","France -38 ","Germany -36 ","Italy -42 ","Australia - 12 ","Japan -  11"],"location":".\\/uiux\\/img\\/stocks\\/designers\\/Lady Cee Kay\\/Skirts and Tops\\/cee019\\/DSC_0402.JPG"},"subtotal":120},"0a60dfbf8238a0cce31c0266bd4c2a84":{"rowid":"0a60dfbf8238a0cce31c0266bd4c2a84","id":"cee005","qty":"3","price":"30","name":"Dangaree","options":{"specifications":"","size":["   \\r\\n                                            sizes: \\r\\n                                              ","US - 14 ","US Named Size - Large\\/X-Large ","UK - 16 ","France -44 ","Germany -42 ","Italy -48 ","Australia - 18 ","Japan -  17"],"location":".\\/uiux\\/img\\/stocks\\/designers\\/Lady Cee Kay\\/Dangaree\\/cee005\\/DSC_0477.JPG"},"subtotal":90}}', '', 'collection', '', '', 'v', 'b3d2b685c2016d7faae0ebff225fc9c86b31e136'),
+(3, '{"44cae7315efab5d74161261ea96dec85":{"rowid":"44cae7315efab5d74161261ea96dec85","id":"tr03","qty":"2","price":"12","name":"beaded neck pieces","options":{"specifications":"","size":["   \\r\\n                                            sizes: \\r\\n                                              "],"location":".\\/uiux\\/img\\/stocks\\/designers\\/Tariro_The_Jeweler\\/Jewelery\\/tr03\\/IMG-20141202-WA0001.jpg"},"subtotal":24}}', '', 'delivery', '', '', 'onlineshooper@email.com', '29da1e268184f2bd6a8b5149997d6a6d0dea283c'),
+(4, '{"87d3c4c80626a87a4f7165b69ef8e6e3":{"rowid":"87d3c4c80626a87a4f7165b69ef8e6e3","id":"cee017","qty":"1","price":"25","name":"Peplum Top","options":{"specifications":"","size":["   \\r\\n                                            sizes: \\r\\n                                              ","US - 2 ","US Named Size - X-Small ","UK - 4 ","France -32 ","Germany -30 ","Italy -36 ","Australia - 6 ","Japan -  5 "],"location":".\\/uiux\\/img\\/stocks\\/designers\\/Lady Cee Kay\\/Skirts and Tops\\/cee017\\/DSC_0445.JPG"},"subtotal":25}}', '', 'delivery', '', '', 'stevedumbura@gmail.com', '52ab2ee9615b25e727186ecfcd4b614d4c232ae1'),
+(5, '{"21ee8ce06a6af4d4bc3909acdf90c8d2":{"rowid":"21ee8ce06a6af4d4bc3909acdf90c8d2","id":"cee016","qty":"1","price":"25","name":"Peplum Top","options":{"specifications":"","size":["   \\r\\n                                            sizes: \\r\\n                                              ","US - 2 ","US Named Size - X-Small ","UK - 4 ","France -32 ","Germany -30 ","Italy -36 ","Australia - 6 ","Japan -  5 "],"location":".\\/uiux\\/img\\/stocks\\/designers\\/Lady Cee Kay\\/Skirts and Tops\\/cee016\\/Peplum_top_25.JPG"},"subtotal":25}}', '', 'delivery', '', '', 'stevedumbura@gmail.com', '29b5e86e8687db0c31ea5d4c781f6694674861ef'),
+(6, '{"54bd067f43061d0b0b13d72e02c8e271":{"rowid":"54bd067f43061d0b0b13d72e02c8e271","id":"cee21","qty":"1","price":"25","name":"Skatter Skirt","options":{"specifications":"","size":["   \\r\\n                                            sizes: \\r\\n                                              ","US - 2 ","US Named Size - X-Small ","UK - 4 ","France -32 ","Germany -30 ","Italy -36 ","Australia - 6 ","Japan -  5 "],"location":".\\/uiux\\/img\\/stocks\\/designers\\/Lady Cee Kay\\/Skirts and Tops\\/cee21\\/Skatter_Skirt_25_(2).jpg"},"subtotal":25}}', '', 'collection', '', '', 'stevedumbura@gmail.com', 'e9b8166ac100c2dd89683a4b27307e5d20c897d6'),
+(7, '{"aa2e4c934f1915cc9742d6daf7e79c40":{"rowid":"aa2e4c934f1915cc9742d6daf7e79c40","id":"cee018","qty":"1","price":"45","name":"Peplum top and pencil skirt","options":{"specifications":"","size":["   \\r\\n                                            sizes: \\r\\n                                              ","US - 2 ","US Named Size - X-Small ","UK - 4 ","France -32 ","Germany -30 ","Italy -36 ","Australia - 6 ","Japan -  5 "],"location":".\\/uiux\\/img\\/stocks\\/designers\\/Lady Cee Kay\\/Skirts and Tops\\/cee018\\/Peplum_top_and_pensil_skirt_45.jpg"},"subtotal":45}}', '2015-02-17', 'collection', 'cod', 'no', 'stevedumbura@gmail.com', 'd9a7e39d5f0d418ff2fee2c72f72ce2fb6826945'),
+(8, '{"21ee8ce06a6af4d4bc3909acdf90c8d2":{"rowid":"21ee8ce06a6af4d4bc3909acdf90c8d2","id":"cee016","qty":"1","price":"25","name":"Peplum Top","options":{"specifications":"","size":["   \\r\\n                                            sizes: \\r\\n                                              ","US - 2 ","US Named Size - X-Small ","UK - 4 ","France -32 ","Germany -30 ","Italy -36 ","Australia - 6 ","Japan -  5 "],"location":".\\/uiux\\/img\\/stocks\\/designers\\/Lady Cee Kay\\/Skirts and Tops\\/cee016\\/Peplum_top_25.JPG"},"subtotal":25}}', '2015-02-17', 'collection', 'cod', 'no', 'stevedumbura@gmail.com', '8af36d0200d2e4f68aed26f49fb936046f125a86'),
+(9, '{"2dc30e9268e0207b3d2c4a55f7246cad":{"rowid":"2dc30e9268e0207b3d2c4a55f7246cad","id":"cee014","qty":"1","price":"25","name":"Stretchy Dress","options":{"specifications":"","size":["   \\r\\n                                            sizes: \\r\\n                                              ","US - 2 ","US Named Size - X-Small ","UK - 4 ","France -32 ","Germany -30 ","Italy -36 ","Australia - 6 ","Japan -  5 "],"location":".\\/uiux\\/img\\/stocks\\/designers\\/Lady Cee Kay\\/Dresses\\/cee014\\/DSC_0426.JPG"},"subtotal":25}}', '2015-02-17', 'collection', 'cod', 'no', 'stevedumbura@gmail.com', 'a7d3c5dad9dac0e12366a01794cff56f3e36a552'),
+(10, '{"be6eb8a6315a78a0be1700f8e5d4eb81":{"rowid":"be6eb8a6315a78a0be1700f8e5d4eb81","id":"tr02","qty":"1","price":"5","name":"faux pearl beaded necklace","options":{"specifications":"","size":["   \\r\\n                                            sizes: \\r\\n                                              "],"location":".\\/uiux\\/img\\/stocks\\/designers\\/Tariro_The_Jeweler\\/Jewelery\\/tr02\\/IMG-20141202-WA0002.jpg"},"subtotal":5}}', '2015-02-17', 'delivery', 'cod', 'no', 'stevedumbura@gmail.com', 'd91867b96c9e8d8e90aabf4073daa6b09cc733fb');
 
 -- --------------------------------------------------------
 
