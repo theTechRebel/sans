@@ -274,7 +274,7 @@ class Catalogue extends CI_Controller {
                   'designers' =>$this->app_model->get_all("designers"),
                   'item' => $collections);
 
-    $config['base_url'] = 'http://localhost/sans/catalogue/designer/'.$collections.'/';
+    $config['base_url'] = url.'catalogue/designer/'.$collections.'/';
     $config['total_rows'] = $data['rows']->num_rows();
     $config['per_page'] = 16;
     $config['num_links'] = $data['rows']->num_rows();
