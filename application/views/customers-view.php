@@ -103,8 +103,9 @@
   <?php $this->session->unset_userdata('paynow_transaction_message'); ?>
   <?php }else{}?>
 
-  <?php if($this->cart->total_items() != null){?>
+  <a class="ui massive teal button fluid" href="<?php echo $url?>catalogue/all/">Continue Shopping</a>
 
+  <?php if($this->cart->total_items() != null){?>
           <h1> Shopping Cart</h1>
             <div class="row">
               <?php echo form_open('cart/update'); ?>
@@ -173,7 +174,7 @@
                   </td>
                 </tr>
                 </tbody>
-
+                  
                 <?php $i++; ?>
 
                 <?php endforeach; ?>
@@ -186,10 +187,10 @@
                 </tr>
 
               </table>
-            </div>
-              <a class="ui huge teal button" href="<?php echo $url?>cart/checkout/2">Proceed to Payment</a>
+            </div><br/>
+              <a class="ui massive teal button fluid" href="<?php echo $url?>cart/checkout/2">Proceed to Payment</a>
               <?php }?>
-              <a class="ui huge teal button" href="<?php echo $url?>catalogue/all/">Continue Shopping</a>
+              
 </div>
                 </div>
               </div>
