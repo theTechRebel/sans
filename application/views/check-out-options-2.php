@@ -76,3 +76,4 @@
             <p>All items ship within 5 working days unless otherwise noted.</p>
             </div></div>
         </div>
+        <?php $fullWindow = TRUE; ?>

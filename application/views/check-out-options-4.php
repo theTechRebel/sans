@@ -77,4 +77,4 @@
       <input type="submit" class="ui primary button" value="Sign me up"/>
     </div>
         </div>
-        <?php $fullWindow = TRUE ?>
+        <?php $fullWindow = TRUE; ?>
