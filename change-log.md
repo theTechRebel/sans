@@ -82,6 +82,8 @@ comments - this is a CI error that i discovered when not in development but duri
 											to replicate it switch Line 184 with Line 185 such that ob_end_clean(); appears before
 											echo $buffer; then procede to host the site in an environment where  [output_buffering](http://php.net/manual/en/outcontrol.configuration.php) is disbaled and try navigating the site and adding an item to cart.
 											The errors should populate the page and you should also recieve an Array to String Conversion failed error.
+
+
 TODO's
 =
 11.Site Layout gets screwed up on wiered screen sizes i.e monitors at College needs to be fixed somehow @ 0%
