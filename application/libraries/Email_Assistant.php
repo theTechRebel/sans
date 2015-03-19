@@ -22,7 +22,7 @@ function send_email($from, $mailName, $email, $subject, $message){
 		 
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		 
 		$response = curl_exec($ch);
 		curl_close($ch);
@@ -39,7 +39,7 @@ function send_email($from, $mailName, $email, $subject, $message){
 		 
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		 
 		$response = curl_exec($ch);
 		curl_close($ch);

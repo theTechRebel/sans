@@ -42,7 +42,8 @@ them to recieve email notifications - password resets, purchases etc).
 
 TODO's
 =
-13.Add the SendGrid API to all email sending functions. @20%
+13.Add the SendGrid API to all email sending functions. @100%
+
 14.Shopping Cart not being destroyed after completing Cash On Delivery, when the page loads the cart
 				empties but when you go to another page from there the cart items that where cleared come back,
 				how strange. @0%

@@ -37,11 +37,26 @@ class Paynow extends CI_Controller {
         }
       }
 
+      $info = json_encode($data);
+
+
+      $list = array('steve@sans.co.zw', 'samantha@sans.co.zw', 'simukai@sans.co.zw');
+
+      $message = "User Invoked a purchase on Sans Exposure details: ".$data;
+
+      $sendGrid = new Email_Assistant();
+
+      $sendGrid->send_email('sales@sans.co.zw', 
+                         'Sans Exposure Sales Team', 
+                         $list, 
+                         'PayNow Payment invocation', 
+                         $message);
+
       $paynowValues = array(
                       'id' => INTEGRETION_ID,
                       'reference' => $this->session->userdata('transaction'),
                       'amount' => $this->cart->total(),
-                      'additionalinfo' => $data,
+                      'additionalinfo' => $info,
                       'returnurl' => $this->config->item('base_url')."paynow/transactionConfirmed",
                       'resulturl' => $this->config->item('base_url')."paynow/result",
                       'authemail' =>  $authemail,
@@ -74,7 +89,7 @@ class Paynow extends CI_Controller {
       var_dump($error);
       echo "<br/>";
       var_dump($e);
-      die();
+      //die();
     }
 
 
@@ -196,7 +211,7 @@ class Paynow extends CI_Controller {
 
 
   private function _resultOK($msg,$paynowValues,$integration_key=INTEGRATION_KEY){
-        $this->_notifyCustomerViaEmailOrder($paynowValues['reference']);
+        //$this->_notifyCustomerViaEmailOrder($paynowValues['reference']);
         //second, check hash
         $validateHash = $this->_createHash($msg, $integration_key);
         if($validateHash != $msg["hash"]){
@@ -239,7 +254,7 @@ class Paynow extends CI_Controller {
             if($query->num_rows() != 1){
               $this->app_model->insert($table_name,$data);
             }else{
-              $this->app_model->update($table_name, $data, $condition);
+              $this->app_model->update($table_name, $data, $condition); 
             }
 
 
@@ -255,15 +270,6 @@ class Paynow extends CI_Controller {
   }
 
   private function _notifyUs($transactionRefference){
-    $config = Array(
-      //'protocol' => 'smtp',
-      //'smtp_host' => 'ssl://smtp.googlemail.com',
-      //'smtp_port' => 465,
-      'smtp_user' => 'sales@sans.co.zw', // change it to yours
-      'smtp_pass' => 'sales@sans', // change it to yours
-      'mailtype' => 'html',
-     //'starttls'  => true,
-  );
 
     $table_name = "paynow";
     $condition = array('reference' => $transactionRefference);
@@ -293,31 +299,19 @@ class Paynow extends CI_Controller {
                 https://www.sans.co.zw/
                 ";
 
-    $this->load->library('email', $config);
-    $this->email->set_newline("\r\n");
-    $this->email->from('sales@sans.co.zw, SANS Exposure Sales Team'); // change it to yours
-    $this->email->to($row['customer']);// change it to yours
-    $this->email->to("simukai@sans.co.zw");
-    $this->email->to("samantha@sans.co.zw");
-    $this->email->to("steve@sans.co.zw");
-    $this->email->subject('Payment Invoice');
-    //$this->email->set_header();
-    $this->email->message($message);
-    $this->email->send();
+    $list = array('steve@sans.co.zw', 'samantha@sans.co.zw', 'simukai@sans.co.zw');
+
+    $sendGrid = new Email_Assistant();
+
+    $sendGrid->send_email('sales@sans.co.zw', 
+                       'Sans Exposure Sales Team', 
+                       $list, 
+                       'PayNow Transaction Notification', 
+                       $message);
 
   }
 
   private function _notifyCustomerViaEmail($transactionRefference){
-
-  $config = Array(
-      //'protocol' => 'smtp',
-      //'smtp_host' => 'ssl://smtp.googlemail.com',
-      //'smtp_port' => 465,
-      'smtp_user' => 'sales@sans.co.zw', // change it to yours
-      'smtp_pass' => 'sales@sans', // change it to yours
-      'mailtype' => 'html',
-     //'starttls'  => true,
-  );
 
     $table_name = "paynow";
     $condition = array('reference' => $transactionRefference);
@@ -334,13 +328,14 @@ class Paynow extends CI_Controller {
 
 
     $message = "
-                <img src='http://sans.co.zw/client_side/sans/sans%20white%20logo.png' alt='SANS Exposure Logo' /><br/>
+                <img src='http://sans.co.zw/uiux/img/logo.png' alt='SANS Exposure Logo'/><br/>
                 Dear ".$info['fname']." ".$info['sname']." <br/>
-                This is a payment receipt for Invoice #". $row['id'] ." sent on ". $row['date_of_payment'] .". <br/>
+                This is a payment receipt for Invoice #". $row['id'] ." sent on ". $row['date_of_payment'] .". <br/><br/>
                 ============================================<br/>
                 Order Details: ".$row['additionalinfo']."<br/>
                 Total Ammount: $".$row['amount']." <br/>
                 Payment Status: ".$row['status']." <br/><br/>
+                ============================================<br/>
 
                 You may review your invoice history at any time by logging in to your client area.<br/>
                 <a href='http://sans.co.zw/auth/'>Click here to go to your account</a><br/>
@@ -351,29 +346,26 @@ class Paynow extends CI_Controller {
                 www.sans.co.zw
                 ";
 
-    $this->load->library('email', $config);
-    $this->email->set_newline("\r\n");
-    $this->email->from('sales@sans.co.zw, SANS Exposure Sales Team'); // change it to yours
-    $this->email->to($row['customer']);// change it to yours
-    $this->email->subject('Payment Invoice');
-    //$this->email->set_header();
-    $this->email->message($message);
-    $this->email->send();
+    $list = array('steve@sans.co.zw', 'samantha@sans.co.zw', 'simukai@sans.co.zw');
+
+    $sendGrid = new Email_Assistant();
+
+    $sendGrid->send_email('sales@sans.co.zw', 
+                       'Sans Exposure Sales Team', 
+                       $row['customer'], 
+                       'Payment Receipt', 
+                       $message);
+
+    $sendGrid->send_email('sales@sans.co.zw', 
+                   'Sans Exposure Sales Team', 
+                   $list, 
+                   'Payment Receipt', 
+                   $message);
 
   }
 
 
     private function _notifyCustomerViaEmailCancelled($transactionRefference){
-
-  $config = Array(
-      //'protocol' => 'smtp',
-      //'smtp_host' => 'ssl://smtp.googlemail.com',
-      //'smtp_port' => 465,
-      'smtp_user' => 'sales@sans.co.zw', // change it to yours
-      'smtp_pass' => 'sales@sans', // change it to yours
-      'mailtype' => 'html',
-     //'starttls'  => true,
-  );
 
     $table_name = "paynow";
     $condition = array('reference' => $transactionRefference);
@@ -390,13 +382,14 @@ class Paynow extends CI_Controller {
 
 
     $message = "
-                <img src='http://sans.co.zw/client_side/sans/sans%20white%20logo.png' alt='SANS Exposure Logo' /><br/>
+                <img src='http://sans.co.zw/uiux/img/logo.png' alt='SANS Exposure Logo'/><br/>
                 Dear ".$info['fname']." ".$info['sname']." <br/>
-                This is a notification that Invoice #". $row['id'] ." sent on ". $row['date_of_payment'] ." was Cancelled. <br/>
+                This is a notification that Invoice #". $row['id'] ." sent on ". $row['date_of_payment'] ." was Cancelled. <br/><br/>
                 ============================================<br/>
                 Order Details: ".$row['additionalinfo']."<br/>
                 Total Ammount: $".$row['amount']." <br/>
-                Payment Status: ".$row['status']." <br/><br/>
+                Payment Status: ".$row['status']." <br/>
+                ============================================<br/>
 
                 You may review your invoice history at any time by logging in to your client area.<br/>
                 <a href='http://sans.co.zw/auth/'>Click here to go to your account</a><br/>
@@ -407,29 +400,26 @@ class Paynow extends CI_Controller {
                 www.sans.co.zw
                 ";
 
-    $this->load->library('email', $config);
-    $this->email->set_newline("\r\n");
-    $this->email->from('sales@sans.co.zw, SANS Exposure Sales Team'); // change it to yours
-    $this->email->to($row['customer']);// change it to yours
-    $this->email->subject('Payment Invoice');
-    //$this->email->set_header();
-    $this->email->message($message);
-    $this->email->send();
+    $list = array('steve@sans.co.zw', 'samantha@sans.co.zw', 'simukai@sans.co.zw');
+
+    $sendGrid = new Email_Assistant();
+
+    $sendGrid->send_email('sales@sans.co.zw', 
+                       'Sans Exposure Sales Team', 
+                       $row['customer'], 
+                       'Payment Cancelled', 
+                       $message);
+
+    $sendGrid->send_email('sales@sans.co.zw', 
+                   'Sans Exposure Sales Team', 
+                   $list, 
+                   'Payment Cancelled', 
+                   $message);
 
   }
 
 
     private function _notifyCustomerViaEmailOrder($transactionRefference){
-
-  $config = Array(
-      //'protocol' => 'smtp',
-      //'smtp_host' => 'ssl://smtp.googlemail.com',
-      //'smtp_port' => 465,
-      'smtp_user' => 'sales@sans.co.zw', // change it to yours
-      'smtp_pass' => 'sales@sans', // change it to yours
-      'mailtype' => 'html',
-     //'starttls'  => true,
-  );
 
     $table_name = "paynow";
     $condition = array('reference'=>$transactionRefference);
@@ -446,13 +436,14 @@ class Paynow extends CI_Controller {
 
 
     $message = "
-                <img src='http://sans.co.zw/client_side/sans/sans%20white%20logo.png' alt='SANS Exposure Logo' /><br/>
+                <img src='http://sans.co.zw/uiux/img/logo.png' alt='SANS Exposure Logo'/><br/>
                 Dear ".$info['fname']." ".$info['sname']." <br/>
                 This is to notify that Invoice #". $row['id'] ." has been created on ". $row['date_of_order'] ." and is awaiting payment. <br/>
                 ============================================<br/>
                 Order Details: ".$row['additionalinfo']."<br/>
                 Total Ammount: $".$row['amount']." <br/>
-                Payment Status: Pending <br/><br/>
+                Payment Status: Pending <br/>
+                ============================================<br/>
 
                 You may review this invoice at any time by logging in to your client area to complete payment.<br/>
                 <a href='http://sans.co.zw/auth/'>Click here to go to your account</a><br/>
@@ -463,14 +454,21 @@ class Paynow extends CI_Controller {
                 www.sans.co.zw
                 ";
 
-    $this->load->library('email', $config);
-    $this->email->set_newline("\r\n");
-    $this->email->from('sales@sans.co.zw, SANS Exposure Sales Team'); // change it to yours
-    $this->email->to($row['customer']);// change it to yours
-    $this->email->subject('Payment Invoice');
-    //$this->email->set_header();
-    $this->email->message($message);
-    $this->email->send();
+    $list = array('steve@sans.co.zw', 'samantha@sans.co.zw', 'simukai@sans.co.zw');
+
+    $sendGrid = new Email_Assistant();
+
+    $sendGrid->send_email('sales@sans.co.zw', 
+                       'Sans Exposure Sales Team', 
+                       $row['customer'], 
+                       'Invoice Created', 
+                       $message);
+
+    $sendGrid->send_email('sales@sans.co.zw', 
+                   'Sans Exposure Sales Team', 
+                   $list, 
+                   'Invoice Created', 
+                   $message);
 
   }
 
@@ -481,7 +479,7 @@ class Paynow extends CI_Controller {
     var_dump($this->session->all_userdata());
     echo "<br/>";
     var_dump($msg);
-    die();
+    //die();
   }
 
   private function _parseMsg($msg) {
@@ -590,7 +588,7 @@ private function _customerHasCreated($msg){
 
 }
 
-private function _customerHasDisputed($msg){
+private function _customerHasDisputed($msg){ 
 
 }
 
