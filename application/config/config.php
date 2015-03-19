@@ -365,7 +365,7 @@ $config['proxy_ips'] = '';
 
 /*
 |--------------------------------------------------------------------------
-| SendGrid Configuration
+| SendGrid Configuration for SMTP email method.
 |--------------------------------------------------------------------------
 |
 | api_user 		=> username on sendgrid
@@ -373,7 +373,7 @@ $config['proxy_ips'] = '';
 | api_format =>	json, maybe there are other options?
 | 
 
-*/
+
 $config['sendgrid_mail'] = array(
 	           																					'api_user'   => 'theTechRebel',
                                  'api_key'    => 'iamtheblaze93',

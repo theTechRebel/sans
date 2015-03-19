@@ -60,7 +60,7 @@
 <?php 
   if($this->session->userdata('email_sent') != Null){
                    $this->session->unset_userdata('email_sent');?>
-                   Please check your email at <?php echo $this->session->userdata('userfound_email'); ?> for an email with steps on how you can recover your password. After that we are sure you can log back into your account.</h3>
+                   <h2>Please check your email at <?php echo $this->session->userdata('userfound_email'); ?> for an email with steps on how you can recover your password. After that we are sure you can log back into your account.</h2>
                    <?php $this->session->unset_userdata('userfound_email');?>
 <?php 
 }

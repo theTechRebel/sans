@@ -52,8 +52,13 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('form_validation','session','database','upload','pagination','cart');
-
+$autoload['libraries'] = array('form_validation',
+										                     'session',
+										                     'database',
+										                     'upload',
+										                     'pagination',
+										                     'cart',
+										                     'Email_Assistant');
 
 /*
 | -------------------------------------------------------------------
@@ -64,7 +69,9 @@ $autoload['libraries'] = array('form_validation','session','database','upload','
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('form','url','app');
+$autoload['helper'] = array('form',
+	                           'url',
+	                           'app');
 
 
 /*
@@ -122,7 +129,7 @@ $autoload['model'] = array('app_model');
 |
 |	$autoload['sparks'] = array('spark1/version');
 |
-*/
+
 $autoload['sparks'] = array('example-spark/1.0.0','sendgrid-mail/0.1.2');
 
 

@@ -44,8 +44,6 @@
                     <?php $this->session->unset_userdata('stage'); ?>
                     <?php if($this->session->userdata('cod_msg')!= Null){?>
                     <h1><?php echo $this->session->userdata('cod_msg');  ?></h1>
-                    <?php $this->cart->destroy(); ?>
-                    <?php $this->session->unset_userdata('transaction');?>
                     <p align="center"><?php $this->session->unset_userdata('cod_msg'); ?></p>
                     <?php }?>
                       </div>

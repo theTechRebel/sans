@@ -1,3 +1,61 @@
+19-03-2015
+
+SANS V 2.1.2
+=
+
+Release Note:
+=
+Stable Release with added SendGrid Email Infrastructure support.
+
+CHANGES
+=
+1. Added SendGrid Web Api to be used as the main transactional email method. 
+[Web API] https://sendgrid.com/docs/API_Reference/Web_API/mail.html
+
+Created a library that is to be used when sending emails from the website 
+mainly because using SMTP is a great challenge because of our current web host
+"Namecheap" who for some reason has crappy support for transactional email.
+
+The issue is basically that with SMTP I couldnt send an email to multiple recipients
+and it included going through Namecheap servers to send the emails and thus takes a bit
+more time when load increases from the website (more customers doing stuff that requires 
+them to recieve email notifications - password resets, purchases etc).
+
+		The library is located in libraries/Email_Assistant.php
+
+		Requirements:	
+		auto-load the library in config/autoload.php
+
+		Usage:
+		1. Create a new Email_Assistant object
+		   $email = new Email_Assistant();
+
+		2. call the send_email() method and provide relavent parameters for the method.
+					$from 				= who the email is coming from
+					$mailName = name to display in the email of who is sending the email
+					$email 			= the recepient
+					$subject 	= the subject matter of the email
+					$message 	= the message
+
+					$email->send_email($from, $mailName, $email, $subject, $message);
+
+TODO's
+=
+13. Add the SendGrid API to all email sending functions. @20%
+14. Shopping Cart not being destroyed after completing Cash On Delivery, when the page loads the cart
+				empties but when you go to another page from there the cart items that where cleared come back,
+				how strange. @0%
+				File: application/controllers/cod.php
+				Line: 55 
+
+THOUGHTS
+=
+Finally managed to add SendGrid to the project, liking how things are progressing so far.
+
+@theTechRebel
+=
+
+
 17-02-2015
 
 SANS V 2.1.1
@@ -5,7 +63,7 @@ SANS V 2.1.1
 
 Release NOTE:
 =
-Stable Release with fix for 
+Stable Release with fix for Headers already sent error.
 
 CHANGES
 =
@@ -65,7 +123,7 @@ TODO's
 =
 8. Sales Reps login and admin menu needs to be added @ 0%
 9. Blogg needs to be added @ 0%
-10. Full SendGrid API Integration with this project for Email Infrastructure @ 30%
+10. Full SendGrid API Integration with this project for Email Infrastructure @ 100%
 
 THOUGHTS
 =

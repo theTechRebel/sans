@@ -206,58 +206,27 @@ class Auth extends CI_Controller {
 
 private function recoverPassword($pwd,$customer,$email){
 
-    
-    /*
-    //using default email account
-    $config = Array(
-      //'protocol' => 'smtp',
-      'smtp_host' => 'smtp.zoho.com',
-      'smtp_port' => 587,
-      'smtp_user' => 'sales@sans.co.zw', // change it to yours
-      'smtp_pass' => 'sales@sans', // change it to yours
-      'mailtype' => 'html',
-     //'starttls'  => true,
-  );
-  */
-
-
     $message = "
                 Dear ".$customer." <br/>
                 You have requested to recover the password for your SANS Exposure Account.<br/>
-                ==========================================================================<br/>
                 We hope you keep this password safe, although you can recover it anytime
                 from our login area.
 
                 Your Password is: <br/>
-                <h1>".$pwd."</h1><br/>
+                <h1>".$pwd."</h1><br/><br/>
 
-                Thank you for visiting our website.
-                We value your continued support.
-                https://www.sans.co.zw/";
+                Thank you for visiting our website.<br/>
+                We value your continued support.<br/>
+                https://www.sans.co.zw/<br/>";
 
-    //using sendgrid
-    $result = $this->sendgrid_mail->send(
-                                          $email, 
-                                          'Password Recovery', 
-                                          $message, 
-                                          NULL, 
-                                          'support@sans.co.zw'
-                                          );
+    $sendGrid = new Email_Assistant();
 
-    //$result->error_message();
-    die(var_dump($result));
+    $from     = 'support@sans.co.zw';
+    $mailName = 'Sans Exposure Support Team';
+    $subject  = 'Password Recovery';
 
-    /*
-    $this->load->library('email', $config);
-    $this->email->set_newline("\r\n");
-    $this->email->from('support@sans.co.zw, SANS Exposure Support Team'); // change it to yours
-    $this->email->to($email);// change it to yours
-    $this->email->to("steve@sans.co.zw");
-    $this->email->subject('Password Recovery');
-    //$this->email->set_header();
-    $this->email->message($message);
-    $this->email->send();
-    */
+    $sendGrid->send_email($from, $mailName, $email, $subject, $message);
+
   }
 
 }
