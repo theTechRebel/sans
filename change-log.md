@@ -28,7 +28,7 @@ them to recieve email notifications - password resets, purchases etc).
 
 		Usage:
 		1. Create a new Email_Assistant object
-		   $email = new Email_Assistant();
+		   $sendGrid = new Email_Assistant();
 
 		2. call the send_email() method and provide relavent parameters for the method.
 					$from 				= who the email is coming from
@@ -37,12 +37,13 @@ them to recieve email notifications - password resets, purchases etc).
 					$subject 	= the subject matter of the email
 					$message 	= the message
 
-					$email->send_email($from, $mailName, $email, $subject, $message);
+					$sendGrid->send_email($from, $mailName, $email, $subject, $message);
+
 
 TODO's
 =
-13. Add the SendGrid API to all email sending functions. @20%
-14. Shopping Cart not being destroyed after completing Cash On Delivery, when the page loads the cart
+13.Add the SendGrid API to all email sending functions. @20%
+14.Shopping Cart not being destroyed after completing Cash On Delivery, when the page loads the cart
 				empties but when you go to another page from there the cart items that where cleared come back,
 				how strange. @0%
 				File: application/controllers/cod.php
