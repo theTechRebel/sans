@@ -10,7 +10,7 @@ Stable Release with added SendGrid Email Infrastructure support.
 CHANGES
 =
 1. Added SendGrid Web Api to be used as the main transactional email method. 
-[Web API] https://sendgrid.com/docs/API_Reference/Web_API/mail.html
+[Web API](https://sendgrid.com/docs/API_Reference/Web_API/mail.html)
 
 Created a library that is to be used when sending emails from the website 
 mainly because using SMTP is a great challenge because of our current web host
@@ -46,7 +46,7 @@ TODO's
 
 14.Shopping Cart not being destroyed after completing Cash On Delivery, when the page loads the cart
 				empties but when you go to another page from there the cart items that where cleared come back,
-				how strange. @0%
+				how strange. @100%
 				File: application/controllers/cod.php
 				Line: 55 
 
@@ -57,7 +57,7 @@ Finally managed to add SendGrid to the project, liking how things are progressin
 @theTechRebel
 =
 
-
+==============================================================================================
 17-02-2015
 
 SANS V 2.1.1
@@ -84,8 +84,9 @@ comments - this is a CI error that i discovered when not in development but duri
 											The errors should populate the page and you should also recieve an Array to String Conversion failed error.
 TODO's
 =
-11. Site Layout gets screwed up on wiered screen sizes i.e monitors at College needs to be fixed somehow @ 0%
-12. .htaccess must redirect to https://sans.co.zw/ if user types sans.co.zw in browser @ 0%
+11.Site Layout gets screwed up on wiered screen sizes i.e monitors at College needs to be fixed somehow @ 0%
+
+12.htaccess must redirect to https://sans.co.zw/ if user types sans.co.zw in browser @ 0%
 
 THOUGHTS
 =
@@ -95,7 +96,7 @@ Thanks StackOverflow. :)
 @theTechRebel
 =
 
-
+=============================================================================================================
 17-02-2015
 
 SANS V 2.1.0
@@ -123,9 +124,12 @@ migrated old code into this project because well even though semantic packs a pu
 
 TODO's
 =
-8. Sales Reps login and admin menu needs to be added @ 0%
-9. Blogg needs to be added @ 0%
-10. Full SendGrid API Integration with this project for Email Infrastructure @ 100%
+
+8.Sales Reps login and admin menu needs to be added @ 0%
+
+9.Blogg needs to be added @ 0%
+
+10.Full SendGrid API Integration with this project for Email Infrastructure @ 100%
 
 THOUGHTS
 =
@@ -135,7 +139,7 @@ Backend code stays on Foundation, Front end code stays on Semantic-UI, thats leg
 =
 
 
-
+===================================================================================================================
 12-02-2015
 
 SANS V 2.0.0
@@ -182,13 +186,19 @@ system and uiux.
 TO-DOS
 =
 
-1. Newsletter sign up box does not work in side-menu @ 100%
-2. Designers View needs to be added @ 100%
-3. Fix all dead links on the site, they need to link to content @ 100%
-4. Search site functionality does not work @ 100%
-5. Cash on delivery needs to be completely developed @ 100%
-6.	Fix additional information sent to PayNow its just too messy and confusing @ 100%
-7. Fix redirect from PayNow after cancelling or completing transaction @ 100%
+1.Newsletter sign up box does not work in side-menu @ 100%
+
+2.Designers View needs to be added @ 100%
+
+3.Fix all dead links on the site, they need to link to content @ 100%
+
+4.Search site functionality does not work @ 100%
+
+5.Cash on delivery needs to be completely developed @ 100%
+
+6.Fix additional information sent to PayNow its just too messy and confusing @ 100%
+
+7.Fix redirect from PayNow after cancelling or completing transaction @ 100%
 
 
 
