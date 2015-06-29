@@ -1,8 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
-define('INTEGRATION_KEY', '35952e40-b92f-426a-9acc-a4ddcfb8fad5');
-define('INTEGRETION_ID', '1254');
+define('INTEGRATION_KEY', ''); //integration key here
+define('INTEGRETION_ID', ''); //integration ID here
 define('URL', 'https://www.paynow.co.zw/interface/initiatetransaction');
 define('ps_error', 'Error');
 define('ps_ok','Ok');

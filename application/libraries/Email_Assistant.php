@@ -6,13 +6,14 @@ function __construct(){$this->ci =& get_instance();}
 
 function send_email($from, $mailName, $email, $subject, $message){
 
+
 	$url = "https://api.sendgrid.com/api/mail.send.json";
 
 		if(is_array($email)){
 
 			foreach ($email as $key => $value) {
-						$data = array('api_user'=> 'thetechrebel',
-			             'api_key'		=> 'iamtheblaze93',
+						$data = array('api_user'=> '', //insert API user here
+			             'api_key'		=> '', //insert api key here
 			             'to[]'	    => $value,
 			             'subject'		=>	$subject,
 			             'html'		   => $message,
@@ -28,8 +29,8 @@ function send_email($from, $mailName, $email, $subject, $message){
 		curl_close($ch);
 		}
 	}else{
-		$data = array('api_user' => 'thetechrebel',
-			             'api_key'		=> 'iamtheblaze93',
+		$data = array('api_user' => '', //insert API user here
+			             'api_key'		=> '', //insert API key here
 			             'to'		     => $email,
 			             'subject'		=>	$subject,
 			             'html'		   => $message,

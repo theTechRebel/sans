@@ -1,3 +1,43 @@
+===================================================================================================================
+29-06-2015
+
+SANS V 2.1.3
+=
+
+RELEASE NOTE:
+=
+Minor Fix
+
+CHANGES
+=
+After issues encountered with the SendGrid Account being used fro phishing emails by malicios intruders details pertainning to external services used by SANS have been removed from the CMS. Information such as:
+
+1. Email delivery service SendGrid requires an API Key and Username. These two have been removed from ./application/libraries/Email_Assistant.php. They should be provided before pushing up to production.
+
+2. PayNow payment recieval service requires an Integration ID & Integration KEY. These two have been removed from ./application/controllers/paynow.php. They should be provided before pushing to production.
+
+The exploit discovered came as a result of the code to the CMS living on GitHUb. Although it was under a PRIVATE REPO the code if searched was accessible to the public.
+
+Proof of exploit:
+https://github.com/search?q=theTechRebel+sendgrid&ref=searchresults&type=Code&utf8=%E2%9C%93
+
+Fix:
+https://sendgrid.com/blog/update-on-security-incident-and-additional-security-measures/
+
+
+
+THOUGHTS
+=
+
+Hackers are real.
+
+
+@theTechRebel
+=
+
+
+
+===================================================================================================================
 19-03-2015
 
 SANS V 2.1.2
